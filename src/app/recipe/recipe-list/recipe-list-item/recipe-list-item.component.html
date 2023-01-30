@@ -1,18 +1,12 @@
 <a
-  href="#"
-  (click)="onSelectRecipe()"
-  class="list-group-item clearfix d-flex justify-content-between"
+  [routerLink]="['/recipes', recipe.recipe_id]"
+  class="d-flex flex-column justify-content-between card-recipe"
 >
-  <div class="pull-left">
-    <h4 class="list-group-item-heading">{{ recipe.name }}</h4>
-    <p class="list-group-item-text">{{ recipe.description }}</p>
+  <div class="card-wrapper-image">
+    <figure>
+      <img [src]="recipe.image_url" alt="{{ recipe.title }}" />
+    </figure>
+    <h4>{{ recipe.title }}</h4>
+    <!-- <p class="list-group-item-text">{{ recipe.description }}</p> -->
   </div>
-  <figure style="height: 100%">
-    <img
-      [src]="recipe.imageUrl"
-      alt="{{ recipe.name }}"
-      class="img-responsive"
-      style="max-height: 100px; width: 100px; object-fit: cover"
-    />
-  </figure>
 </a>

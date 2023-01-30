@@ -6,32 +6,14 @@
 <hr />
 <div class="row">
   <div class="col-xs-12">
-    <ul class="list-group">
-      <app-recipe-list-item
-        *ngFor="let recipeEl of recipes"
-        [recipe]="recipeEl"
-        (recipeSelected)="onSelectRecipe(recipeEl)"
-      ></app-recipe-list-item>
-      <!-- <a
-        href="#"
-        class="list-group-item clearfix d-flex justify-content-between"
-        *ngFor="let recipe of recipes"
-      >
-        <div class="pull-left">
-          <h4 class="list-group-item-heading">{{ recipe.name }}</h4>
-          <p class="list-group-item-text">{{ recipe.description }}</p>
-        </div>
-        <figure style="height: 100%">
-          <img
-            [src]="recipe.imageUrl"
-            alt="{{ recipe.name }}"
-            class="img-responsive"
-            style="max-height: 100px; width: 100px; object-fit: cover"
-          />
-        </figure>
-      </a> -->
+    <ul class="card-recipe-container">
+      <ng-container *ngIf="recipes">
+        <app-recipe-list-item
+          *ngFor="let recipeEl of recipes?.recipes"
+          [recipe]="recipeEl"
+          (recipeSelected)="onSelectRecipe(recipeEl)"
+        ></app-recipe-list-item>
+      </ng-container>
     </ul>
-
-    <app-recipe-list-item></app-recipe-list-item>
   </div>
 </div>
